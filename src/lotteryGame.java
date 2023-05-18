@@ -23,8 +23,13 @@ public class lotteryGame {
 
         Scanner reader = new Scanner(System.in);
         int[] userArray = new int[lotLength];
+        boolean[] matchedUserElements = new boolean[lotLength]; //Track matched elements in the array
         for (int i = 0; i < userArray.length; i++) {
-        userArray[i] = Integer.parseInt(reader.nextLine());
+            while (!reader.hasNextInt()) {
+                System.out.println("Invalid input. Please enter an integer: ");
+                reader.next(); // Clear the invalid input
+            }
+        userArray[i] = reader.nextInt();
         }
 
         //Compare user numbers against random numbers
@@ -32,8 +37,10 @@ public class lotteryGame {
 
 
             for (int j = 0; j < userArray.length; j++) {
-                if (lotArray[i] == userArray[j]){
+                if (lotArray[i] == userArray[j] && !matchedUserElements[j]){
                     matching = matching + 1;
+                    matchedUserElements[j] = true;
+                    break;
                 }
             }
         //Win conditions of lottery
