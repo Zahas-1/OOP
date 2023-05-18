@@ -39,8 +39,8 @@ public class lotteryGame {
             for (int j = 0; j < userArray.length; j++) {
                 if (lotArray[i] == userArray[j] && !matchedUserElements[j]){
                     matching = matching + 1;
-                    matchedUserElements[j] = true;
-                    break;
+                    matchedUserElements[j] = true; // Mark the matched user element as already matched
+                    break; // Break the inner loop to avoid multiple matches for the same lotArray element
                 }
             }
         //Win conditions of lottery
