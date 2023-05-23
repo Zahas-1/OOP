@@ -1,10 +1,12 @@
 public class Car {
+    private String name;
     private int wheels;
     private int windows;
     private String colour;
     private double weight;
 
-    public Car(int wheels, int windows, String colour, double weight) {
+    public Car(String name, int wheels, int windows, String colour, double weight) {
+        setName(name);
         setWheels(wheels);
         setWindows(windows);
         setColour(colour);
@@ -12,7 +14,15 @@ public class Car {
     }
 
     public String toString() {
-        return getClass().getName() + " Wheels: " + getWheels() + " Windows: " +  getWindows() + " Colour: " + getColour() + " Weight: " + getWeight();
+        return getClass().getName() + " Wheels: " + getWheels() + " Windows: " + getWindows() + " Colour: " + getColour() + " Weight: " + getWeight();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
     }
 
     public int getWheels() {
@@ -20,11 +30,9 @@ public class Car {
     }
 
 
-
     public void setWheels(int wheels) {
         this.wheels = wheels;
     }
-
 
 
     public int getWindows() {
@@ -35,23 +43,23 @@ public class Car {
         this.windows = windows;
     }
 
-    public String getColour(){
+    public String getColour() {
         return colour;
     }
 
-    public void setColour(String colour){
+    public void setColour(String colour) {
         this.colour = colour;
     }
 
-    public double getWeight(){
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight){
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
-    public void wheelMissing(){
+    public void wheelMissing() {
         wheels = wheels - 1;
 
     }
