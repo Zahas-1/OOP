@@ -33,18 +33,17 @@ public class lotteryGame {
         }
 
         //Compare user numbers against random numbers
-        for (int i = 0; i < lotArray.length; i++) {
-
-
-            for (int j = 0; j < userArray.length; j++) {
-                if (lotArray[i] == userArray[j] && !matchedUserElements[j]){
-                    matching = matching + 1;
-                    matchedUserElements[j] = true; // Mark the matched user element as already matched
-                    break; // Break the inner loop to avoid multiple matches for the same lotArray element
+        for (int lotNumber : lotArray) {
+            for (int i = 0; i < userArray.length; i++) {
+                if (lotNumber == userArray[i] && !matchedUserElements[i]) {
+                    matching++;
+                    matchedUserElements[i] = true; // Mark the matched user element as already matched
+                    break;
                 }
             }
+        }
         //Win conditions of lottery
-        } if(matching == lotLength){
+        if(matching == lotLength){
             System.out.println("YOU WON!!!");
         }  else if (matching > 0){
             System.out.println("You had " + matching + " matching numbers");
